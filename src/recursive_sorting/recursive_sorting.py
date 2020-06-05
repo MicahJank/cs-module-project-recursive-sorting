@@ -3,8 +3,31 @@ def merge(arrA, arrB):
     elements = len(arrA) + len(arrB)
     merged_arr = [0] * elements
 
-    # Your code here
+    i = 0
+    arrA_pointer = 0
+    arrB_pointer = 0
+    while arrA_pointer < len(arrA) and arrB_pointer < len(arrB):
+        if arrA[arrA_pointer] < arrB[arrB_pointer]:
+            merged_arr[i] = arrA[arrA_pointer]
+            arrA_pointer += 1
+        else:
+            merged_arr[i] = arrB[arrB_pointer]
+            arrB_pointer += 1
+        
+        i += 1
+    else:
+        if arrA_pointer < len(arrA):
+            while arrA_pointer < len(arrA):
+                merged_arr[i] = arrA[arrA_pointer]
+                arrA_pointer += 1
+                i += 1
 
+        if arrB_pointer < len(arrB):
+            while arrB_pointer < len(arrB):
+                merged_arr[i] = arrB[arrB_pointer]
+                arrB_pointer += 1
+                i += 1
+            
 
     return merged_arr
 
