@@ -34,15 +34,30 @@ def merge(arrA, arrB):
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort(arr):
-    # Your code here
+    # base case is when the all the initial arr items each are there own arrays - i can know this if the length of the array is 1
+    if len(arr) > 1:
+        # find the mid of the arr and then use that to split the array into to halves
+        mid = int(len(arr) / 2)
+        arrA = arr[0:mid]
+        arrB = arr[mid:]
+        
+        # arrA will recurse all the way down until it cant halve itself anymore - after that it will start bubbling up
+        arrA = merge_sort(arrA)
+        # then arrB will do the same thing until it cannot halve itself anymore
+        arrB = merge_sort(arrB)
+
+        # finally arr can be assigned the value of merging arrA and arrB which will piece back together all the halfs but this time sorted
+        arr = merge(arrA, arrB)
 
 
-    return arr
+    return arr    
  
 
 # implement an in-place merge sort algorithm
 def merge_in_place(arr, start, mid, end):
-    # Your code here
+    
+    i = 0
+    while 
 
 
     return arr
