@@ -57,14 +57,43 @@ def merge_sort(arr):
 def merge_in_place(arr, start, mid, end):
     
     i = 0
-    while 
+    pointer_a = start
+    pointer_b = mid
+    while pointer_a < mid and pointer_b < (end-mid):
+        if arr[pointer_a] < arr[pointer_b]:
+            arr[i] = arr[pointer_a]
+            pointer_a += 1
+        else:
+            arr[i] = arr[pointer_b]
+            pointer_b += 1
 
+        i += 1
+    else:
+        if pointer_a < mid:
+            while start < mid:
+                arr[i] = arr[pointer_a]
+                start += 1
+                i += 1
 
+        if mid < (end-mid):
+            while pointer_b < (end-mid):
+                arr[i] = arr[pointer_b]
+                mid += 1
+                i += 1
+        
     return arr
 
 
 def merge_sort_in_place(arr, l, r):
-    # Your code here
+
+    if (r+1) > 1:
+        mid = int(r/2)
+
+        merge_sort_in_place(arr, l, mid)
+        merge_sort_in_place(arr, mid+1, r)
+
+        merge_in_place(arr, l, mid, r)
+
 
 
     return arr
