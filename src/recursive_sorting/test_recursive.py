@@ -33,6 +33,14 @@ class RecursiveSortingTests(unittest.TestCase):
         self.assertEqual(merge_sort_in_place(
             arr5, 0, len(arr5)-1), sorted(arr5))
 
+    def test_timsort(self):
+        arr1 = [5, 21, 7, 23, 19]
+        arr2 = [1,2,3,10,9,8,7,20,30,40,50]
+        arr3 = []
+        arr4 = [5]
+        arr5 = [0,3,6,9,12]
+        arr6 = random.sample(range(200), 50)
+
 
 if __name__ == '__main__':
     unittest.main()

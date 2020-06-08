@@ -1,3 +1,4 @@
+from insertion_sort import insertion_sort
 # TO-DO: complete the helper function below to merge 2 sorted arrays
 def merge(arrA, arrB):
     elements = len(arrA) + len(arrB)
@@ -120,6 +121,20 @@ def merge_sort_in_place(arr, l, r):
 # STRETCH: implement the Timsort function below
 # hint: check out https://github.com/python/cpython/blob/master/Objects/listsort.txt
 def timsort(arr):
-    # Your code here
+    minrun = 32
+
+    for i in range(0, len(arr), minrun):
+        insertion_sort(arr)
+
+    size = minrun
+
+    while size < len(arr):
+        for left in range(0, len(arr), 2*size):
+            left_end = left + size - 1
+            right = min((left + 2 * size - 1), len(arr)-1)
+
+            merge_in_place(arr, left, left_end, right)
+
+        size = 2 * size
 
     return arr
